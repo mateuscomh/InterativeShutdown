@@ -3,12 +3,12 @@
 #-----------HEADER-------------------------------------------------------------|
 # AUTOR             : Matheus Martins 3mhenrique@gmail.com
 # HOMEPAGE          : https://github.com/mateuscomh 
-# DATA CRIAÇÃO   : 
+# DATA CRIAÇÃO      : 03/08/2020 
 # PROGRAMA          : Shell-Base
 # VERSÃO            : 1.2
 # LICENÇA           : GPL3
-# PEQUENA-DESCRIÇÃO : Programa para criação de template.
-#
+# PEQUENA-DESCRIÇÃO : Programa agendamento de desligamento do sistema de forma 
+#   interativa via zenity.
 # CHANGELOG :
 #29/07/2020 11:00 
 # -Criado Script de desligamento
@@ -17,9 +17,7 @@
 #03/08/2020 18:00
 # -Ajustado script corrigindo erro ao cancelar agendamento
 # -Adicionado segurança para evitar inserção de nao numeros
-#------------------------------------------------------------------------------|
-
-
+#----------FIM-HEADER----------------------------------------------------------|
 #----------FUNCOES-------------------------------------------------------------|
 _cancela_agenda(){
   zenity --info --text='Agendamento Cancelado'
@@ -27,7 +25,6 @@ _cancela_agenda(){
   exit 0
 }
 #----------FIM FUNCOES---------------------------------------------------------|
-
 timer=$(zenity --entry --text="Desligamento do sistema (Em Minutos)");
 [ "$?" -eq "1" ] && _cancela_agenda
 [[ ${timer} =~ ^([0-9]+)$ ]]
